@@ -10,13 +10,14 @@ export class AppComponent {
   pi = Math.PI;
   date = new Date();
 
-  dog = new Dog("Spajki", 12);
+  days = ['Poniedzialek', 'Wtorek', 'Sroda', 'Czwartek', 'Piatek', 'Sobota', 'Niedziela'];
+  
+  dogs = new Array<Dog>();
 
-  showDog() : string {
-    return 'Mój pies to ' + this.dog.name + ' i ma ' + this.dog.age + ' lat';
+  constructor(){
+    this.dogs.push(new Dog('Reksio', 4), new Dog('Łatek', 3), new Dog('Maksiu', 5));
   }
 }
-
 
 class Dog {
   constructor(public name: string, public age: number) {
