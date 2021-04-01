@@ -1,28 +1,9 @@
 <h1>Siemka, to jest {{title | uppercase}}</h1>
 <p>Dni tygodnia:</p>>
-<ng-container *ngIf="days.length == 7">
-  <ul>
-    <p *ngFor="let day of days; let e = even">
-      <li *ngIf="e">
-        {{day}}
-      </li>
-    </p>
-  </ul>
-</ng-container>
-
-
-<ng-container *ngIf="dogs.length > 0; then areDogs ; else noDogs"></ng-container>
-
-<ng-template #areDogs>
-  <div *ngFor="let dog of dogs">
-    Mój pies ma na imię {{dog.name}} i ma {{dog.age}} lata
+<div *ngFor="let day of days">
+  <div [ngSwitch]="day">
+    <div *ngSwitchCase = "'Poniedzialek'">Montag</div>
+    <div *ngSwitchCase = "'Wtorek'">Dienstag</div>
+    <div *ngSwitchDefault>en annen dag på tysk</div>
   </div>
-</ng-template>
-
-<ng-template #noDogs>
-<p>Piesków nie ma :(</p>
-</ng-template>
-
-
-<button (click)="addDogs()">Dodaj</button>
-<button (click)="removeDogs()">Usuń</button>
+</div>
