@@ -14,8 +14,14 @@ export class AppComponent {
   
   dogs = new Array<Dog>();
 
-  constructor(){
+  addDogs() {
     this.dogs.push(new Dog('Reksio', 4), new Dog('Łatek', 3), new Dog('Maksiu', 5));
+  }
+
+  removeDogs() {
+    for(let i = 0; i<=this.dogs.length + 1; i++){
+      this.dogs.pop()
+    }
   }
 }
 

@@ -1,14 +1,28 @@
 <h1>Siemka, to jest {{title | uppercase}}</h1>
 <p>Dni tygodnia:</p>>
+<ng-container *ngIf="days.length == 7">
+  <ul>
+    <p *ngFor="let day of days; let e = even">
+      <li *ngIf="e">
+        {{day}}
+      </li>
+    </p>
+  </ul>
+</ng-container>
 
-<ul>
-  <li *ngFor="let day of days">
-    {{day}}
-  </li>
-</ul>
 
-<div *ngFor="let dog of dogs; let i = index">
-  {{i + 1}}: Mój pies ma na imię {{dog.name}} i ma {{dog.age}} lata
-</div>
+<ng-container *ngIf="dogs.length > 0; then areDogs ; else noDogs"></ng-container>
 
-<app-test *ngFor="let i of [1,2,3,4]"></app-test>
+<ng-template #areDogs>
+  <div *ngFor="let dog of dogs">
+    Mój pies ma na imię {{dog.name}} i ma {{dog.age}} lata
+  </div>
+</ng-template>
+
+<ng-template #noDogs>
+<p>Piesków nie ma :(</p>
+</ng-template>
+
+
+<button (click)="addDogs()">Dodaj</button>
+<button (click)="removeDogs()">Usuń</button>
