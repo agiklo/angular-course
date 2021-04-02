@@ -1,9 +1,5 @@
-<h1>Siemka, to jest {{title | uppercase}}</h1>
-<p>Dni tygodnia:</p>>
-<div *ngFor="let day of days">
-  <div [ngSwitch]="day">
-    <div *ngSwitchCase = "'Poniedzialek'">Montag</div>
-    <div *ngSwitchCase = "'Wtorek'">Dienstag</div>
-    <div *ngSwitchDefault>en annen dag på tysk</div>
-  </div>
-</div>
+<h3 [className]="colorClass">Angular Kurs - property binding</h3>
+<img [src]="logoUrl">
+<input [maxLength] = "maxLength" [value]="inputText">
+
+<button [disabled] = "isDisable" (click)="change()">Dodaj</button>

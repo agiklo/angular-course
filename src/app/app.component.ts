@@ -6,27 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-kurs';
-  pi = Math.PI;
-  date = new Date();
-
-  days = ['Poniedzialek', 'Wtorek', 'Sroda', 'Czwartek', 'Piatek', 'Sobota', 'Niedziela'];
   
-  dogs = new Array<Dog>();
+  inputText = 'Tekst';
+  maxLength = 5;
+  colorClass = 'color';
+  logoUrl = '';
 
-  addDogs() {
-    this.dogs.push(new Dog('Reksio', 4), new Dog('Łatek', 3), new Dog('Maksiu', 5));
+  isDisable = true;
+
+  constructor() {
+    setTimeout(() => {
+      this.isDisable = false;
+    }, 3000);
   }
 
-  removeDogs() {
-    for(let i = 0; i<=this.dogs.length + 1; i++){
-      this.dogs.pop()
-    }
+  change() {
+    this.inputText = 'Zmiana tekstu';
+    this.maxLength = 10;
+    this.colorClass = 'color2';
+    this.logoUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
   }
-}
 
-class Dog {
-  constructor(public name: string, public age: number) {
-
-  }
 }
